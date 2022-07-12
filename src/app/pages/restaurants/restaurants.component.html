@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="container search-form">
+  <div class="text-center">
+    <div class="title-search">
+      <h1>Dove vorresti andare?</h1>
+    </div>
+
+    <form>
+      <input (input)="noCity = false" [(ngModel)]="city" class="form-control" type="text"
+        placeholder="Inserisci la Città" name="city" [value]="city" />
+      <button (click)="searchRestaurantByCity()" class="btn btn-lg btn-danger">
+        Trova i ristoranti!
+      </button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="noCity" class="border-top d-flex align-items-center pt-3">
+  <div *ngIf="!isLoading" class="container text-end">
+    <p>
+      <small>La ricerca ha prodotto <b class="fs-6">{{ restaurants.length }}</b>
+        <span *ngIf="restaurants.length == 1"> risultato</span>
+        <span *ngIf="restaurants.length > 1 || restaurants.length == 0">
+          risultati</span>
+        per
+        <b class="fs-6"><i>"{{ city }}"</i></b></small>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="!isLoading" class="border-top album py-5 bg-light">
+  <div class="container">
+    <div class="row g-3">
+      <app-restaurant *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurant>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex flex-column flex-sm-row justify-content-between pt-2 mt-5 border-top">
+  <p>© 2022 Take A Sit, Inc. - All rights reserved.</p>
+  <ul class="list-unstyled d-flex">
+    <li class="ms-3">
+      <a class="link-dark" href="#"><i class="bi bi-twitter"></i></a>
+    </li>
+    <li class="ms-3">
+      <a class="link-dark" href="#"><i class="bi bi-facebook"></i></a>
+    </li>
+    <li class="ms-3">
+      <a class="link-dark" href="#"><i class="bi bi-instagram"></i></a>
+    </li>
+  </ul>
+</div>

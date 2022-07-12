@@ -1,0 +1,369 @@
+{
+  "users": [
+    {
+      "email": "ignazio@ignazio.it",
+      "password": "$2a$10$aHgaJnjORqOM/slZFlQqhuPqBni6pz105ouJ9osxNUnl2aWodb9lC",
+      "first_name": "Ignazio",
+      "last_name": "Valenti",
+      "restaurant": 1,
+      "id": 1
+    },
+    {
+      "email": "admin@admin.it",
+      "password": "$2a$10$7D2yoOeZYKSwCf5u4jAnwOYm5QawC9BxC1ky6N8glHlwVDF.lB3cK",
+      "first_name": "Mario",
+      "last_name": "Rossi",
+      "id": 2
+    },
+    {
+      "email": "cliente@cliente.it",
+      "password": "$2a$10$PJZgHTqJy2xngM2Kr9TXaeEi8xO3BQIaJIaeDnapF9Xmt0r6R/keK",
+      "first_name": "Cliente",
+      "last_name": "Cliente",
+      "id": 4
+    },
+    {
+      "email": "risto@risto.it",
+      "password": "$2a$10$AY1T3IdlVgkYGj9.exF/z.DRF9FJh.O9lE.pgNT8l7q8xz5iLREem",
+      "first_name": "Ristorante",
+      "last_name": "Ristorante",
+      "restaurant": 8,
+      "id": 5
+    },
+    {
+      "email": "enrica@enrica.it",
+      "password": "$2a$10$AY1T3IdlVgkYGj9.exF/z.DRF9FJh.O9lE.pgNT8l7q8xz5iLREem",
+      "first_name": "Enrica",
+      "last_name": "Enrica",
+      "restaurant": 8,
+      "id": 6
+    }
+  ],
+  "reservation": [
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 1,
+      "restName": "Ciaula",
+      "email": "admin@admin.it",
+      "day": "1657493308387",
+      "time": "21.00",
+      "people": 3,
+      "id": 1
+    },
+    {
+      "user": 6,
+      "name": "Enrica",
+      "restaurant": 1,
+      "restName": "Ciaula",
+      "email": "enrica@enrica.it",
+      "day": "1657730345022",
+      "time": "20.00",
+      "people": 3,
+      "id": 2
+    },
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 8,
+      "restName": "Ristorante X",
+      "email": "admin@admin.it",
+      "day": "1657730345022",
+      "time": "20.00",
+      "people": 2,
+      "id": 3
+    },
+    {
+      "user": 4,
+      "name": "Cliente",
+      "restaurant": 1,
+      "restName": "Ciaula",
+      "email": "cliente@cliente.it",
+      "day": "1657730345022",
+      "time": "21.30",
+      "people": 4,
+      "id": 4
+    },
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 1,
+      "restName": "Ciaula",
+      "email": "admin@admin.it",
+      "day": "1657973641549",
+      "time": "21.30",
+      "people": 3,
+      "id": 5
+    },
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 7,
+      "restName": "Pranzo E cena",
+      "email": "admin@admin.it",
+      "day": "1657630782606",
+      "time": "11.30",
+      "people": 3,
+      "id": 6
+    },
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 1,
+      "restName": "Ciaula",
+      "email": "admin@admin.it",
+      "day": "1657805539284",
+      "time": "19.30",
+      "people": 1,
+      "id": 7
+    }
+  ],
+  "restaurants": [
+    {
+      "restaurant": "Ciaula",
+      "address": "Piazza San Francesco, 7",
+      "city": "Agrigento",
+      "cap": 92100,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Cibo di strada",
+        "Steakhouse",
+        "Grill",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [
+        {
+          "autor": "Cliente",
+          "description": "Perfetto!",
+          "stars": 10,
+          "date": "07 lug 2022"
+        },
+        {
+          "autor": "Cliente",
+          "description": "Buono",
+          "stars": 7,
+          "date": "07 lug 2022"
+        },
+        {
+          "autor": "Mario",
+          "description": "Quasi perfetto!",
+          "stars": 8,
+          "date": "07 lug 2022"
+        },
+        {
+          "autor": "Mario",
+          "description": "Tutto molto bello!",
+          "stars": 10,
+          "date": "07 lug 2022"
+        },
+        {
+          "autor": "Mario",
+          "description": "Bello bello",
+          "stars": 10,
+          "date": "08 lug 2022"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "restaurant": "Ristorante 2 AG",
+      "address": "Via Qualsiasi, 11",
+      "city": "Agrigento",
+      "cap": 92100,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Pesce",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [
+        {
+          "autor": "Mario",
+          "description": "Bene ma non benissimo",
+          "stars": 7,
+          "date": "08 lug 2022"
+        },
+        {
+          "autor": "Mario",
+          "description": "",
+          "stars": 10,
+          "date": "08 lug 2022"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "restaurant": "Ristorante 3 AG",
+      "address": "Via Non si sa, 1",
+      "city": "Agrigento",
+      "cap": 92100,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Pesce",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [],
+      "id": 3
+    },
+    {
+      "restaurant": "Ristorante 1 PA",
+      "address": "Via non lo so, 1",
+      "city": "Palermo",
+      "cap": 90140,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Pesce",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [
+        {
+          "autor": "Mario",
+          "description": "",
+          "stars": 8,
+          "date": "08 lug 2022"
+        },
+        {
+          "autor": "Cliente",
+          "description": "",
+          "stars": 10,
+          "date": "08 lug 2022"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "restaurant": "Ristorante 2 PA",
+      "address": "Via non lo so, 1",
+      "city": "Palermo",
+      "cap": 90140,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Pesce",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [],
+      "id": 5
+    },
+    {
+      "restaurant": "Ristorante 1 CT",
+      "address": "Via ma chissà, 1",
+      "city": "Catania",
+      "cap": 90140,
+      "phone": "+1 (174) 446-2501",
+      "categories": [
+        "Pesce",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "",
+      "lunchEnd": "",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "01.00",
+      "dayOff": "Martedì",
+      "reviews": [
+        {
+          "autor": "Cliente",
+          "description": "top!",
+          "stars": 10,
+          "date": "08 lug 2022"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "restaurant": "Pranzo E cena",
+      "address": "Et a magni est sint ",
+      "city": "Palermo",
+      "cap": 8,
+      "phone": "+1 (918) 794-4518",
+      "categories": [
+        "Francese",
+        "Internazionale",
+        "Fusion",
+        "Panineria"
+      ],
+      "lunchStart": "11.00",
+      "lunchEnd": "14.00",
+      "dinnerStart": "20.00",
+      "dinnerEnd": "00.00",
+      "dayOff": "Lunedì",
+      "reviews": [
+        {
+          "autor": "Mario",
+          "description": "",
+          "stars": 9,
+          "date": "08 lug 2022"
+        },
+        {
+          "autor": "Cliente",
+          "description": "brutto",
+          "stars": 4,
+          "date": "08 lug 2022"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "restaurant": "Ristorante X",
+      "address": "via Ristorante, 1",
+      "city": "Agrigento",
+      "cap": 92100,
+      "phone": "0922123456",
+      "categories": [
+        "Italiana",
+        "Pesce",
+        "Steakhouse",
+        "Mediterranea",
+        "Panineria"
+      ],
+      "lunchStart": "12.00",
+      "lunchEnd": "14.00",
+      "dinnerStart": "19.00",
+      "dinnerEnd": "00.00",
+      "dayOff": "Lunedì",
+      "reviews": [
+        {
+          "autor": "Mario",
+          "description": "Ottimo ristorante",
+          "stars": 9,
+          "date": "08 lug 2022"
+        },
+        {
+          "autor": "Mario",
+          "description": "top",
+          "stars": 10,
+          "date": "12 lug 2022"
+        }
+      ],
+      "id": 8
+    }
+  ]
+}

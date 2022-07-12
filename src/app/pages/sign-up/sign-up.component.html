@@ -1,0 +1,27 @@
+
+<div class="register">
+
+    <div class="register-container">
+
+      <img src="../../../assets/img/logo.png" alt="" srcset="">
+              
+      <h3>Compila tutti i campi:</h3>
+        
+      <div class="forms">
+
+        <form>
+          <input type="text" placeholder="Nome" [(ngModel)]="authRegister.first_name" name="first-name">
+          <input type="text" placeholder="Cognome" [(ngModel)]="authRegister.last_name" name="last-name">
+          <input type="email" placeholder="Email" [(ngModel)]="authRegister.email" name="email">
+          <input type="password" placeholder="Password" [(ngModel)]="authRegister.password" name="password">
+            
+          <button class="btn btn-lg btn-warning" (click)="register()">Registrati</button>
+          <a [routerLink]="['/']">Torna alla home</a>
+        </form>
+
+      </div>
+
+    </div>
+
+</div>
+

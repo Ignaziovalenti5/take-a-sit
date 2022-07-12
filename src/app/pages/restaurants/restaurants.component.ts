@@ -22,10 +22,15 @@ export class RestaurantsComponent implements OnInit {
   isLoading:boolean = false
   noCity:boolean = false
 
+  currentPage:number = 1
+  pages:number[] = []
+
   ngOnInit(): void {
     this.route.params.subscribe((res:any) => {
       this.city = res.city      
     })
+    console.log(location);
+    
 
     this.getRestaurants()
   }
@@ -54,20 +59,10 @@ export class RestaurantsComponent implements OnInit {
     this.getRestaurants()
   }
 
-  similar(a:string, b:string) {
-    var equivalency = 0;
-    var minLength = (a.length > b.length) ? b.length : a.length;    
-    var maxLength = (a.length < b.length) ? b.length : a.length;    
-    for(var i = 0; i < minLength; i++) {
-        if(a[i] == b[i]) {
-            equivalency++;
-        }
-    }
+  //TODO pagination
+  paginate(restaurant:Restaurant[], restaurantForPage:number){
     
-
-    var weight = equivalency / maxLength;
-    return (weight * 100);
-}
+  }
 
 
 }

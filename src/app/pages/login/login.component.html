@@ -14,11 +14,12 @@
             <form>
                 <input type="email" placeholder="E-mail" [(ngModel)]="authLogin.email" name="email">
                 <input type="password" placeholder="Password" [(ngModel)]="authLogin.password" name="password">
+                <p *ngIf="wrongData" class="text-danger">L'email o la password non sono corretti</p>
                 
                 <button class="btn btn-lg btn-success" (click)="login()">Accedi</button>
             </form>
 
-            <p>oppure</p>            
+            <p>oppure</p>
 
             <button class="btn btn-warning" (click)="goToRegisterPage()">Registrati!</button>
 

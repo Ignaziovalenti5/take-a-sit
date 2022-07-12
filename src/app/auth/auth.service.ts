@@ -17,6 +17,7 @@ export class AuthService {
   apiUrlUsers = 'http://localhost:4201/users/'
 
   jwtHelper = new JwtHelperService()
+  wrongData: boolean = false
 
   login(authLogin:Login) {
     return this.http.post(this.apiUrlLogin, authLogin).pipe(

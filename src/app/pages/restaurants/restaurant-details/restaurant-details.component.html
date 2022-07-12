@@ -63,17 +63,17 @@
             </div>
             <div class="col-6 mt-3 position-relative">
                 <p>Persone:</p>
-                <input [(ngModel)]="person" name="person" class="form-control ps-5" type="number" max="12" maxlength="2"
+                <input [(ngModel)]="person" name="person" class="form-control ps-5" type="number" min="1" max="12" maxlength="2"
                     placeholder="n° persone al tavolo">
                 <i class="bi bi-people position-absolute"></i>
             </div>
 
-            <button type="submit" class="btn btn-success col-6 mx-auto mt-5">Prenota Tavolo</button>
+            <button [disabled]="!time || !date || !person" type="submit" class="btn btn-success col-6 mx-auto mt-5">Prenota Tavolo</button>
         </form>
     </div>
     <div *ngIf="isReserved">
         <h2 class="reserve-title">Prenotazione avvenuta con successo!</h2>
-        <p class="text-center">Gustati il pasto, dopodiché se vuoi, condividi la tua esperienza con la comunity! La tua opinione è importante per noi</p>
+        <p class="text-center">Gustati il pasto, dopodiché se vuoi, condividi la tua esperienza con la comunity!</p>
     </div>
     
     
@@ -105,10 +105,10 @@
             <i (click)="review.stars = 10" *ngIf="review.stars >= 10" class="bi bi-star-fill fs-3 mx-2 green"></i>
         </div>
         <div class="container mt-3">
-            <h6 class="text-start">Scrivi qui la tua recensione:</h6>
+            <h6 class="text-start">Scrivi qui la tua recensione: <span class="facolt">(facoltativo)</span></h6>
             <textarea [(ngModel)]="review.description" class="form-control text-area" name="review-desc"
                 rows="3"></textarea>
-            <button (click)="sendReview()" class="btn btn-warning my-3">Invia Recensione</button>
+            <button [disabled]="!review.stars" (click)="sendReview()" class="btn btn-warning my-3 p-2 px-4">Invia Recensione</button>
         </div>
     </div>
 

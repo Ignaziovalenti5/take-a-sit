@@ -200,15 +200,16 @@
               </select>
             </div>
             <div class="col-1 mt-2">
-              <p>alle</p>
+              <p *ngIf="restaurant.lunchStart != ''">alle</p>
             </div>
             <div class="col-5">
               <select
                 name="orario-pranzo-end"
                 class="form-select"
                 [(ngModel)]="restaurant.lunchEnd"
+                *ngIf="restaurant.lunchStart != ''"
               >
-                <option value="">Non Aperti a pranzo</option>
+                
                 <option value="13.00">13.00</option>
                 <option value="14.00">14.00</option>
                 <option value="15.00">15.00</option>
@@ -238,15 +239,16 @@
               </select>
             </div>
             <div class="col-1 mt-2">
-              <p>alle</p>
+              <p *ngIf="restaurant.dinnerStart != ''">alle</p>
             </div>
             <div class="col-5">
               <select
                 name="orario-cena-end"
                 class="form-select"
                 [(ngModel)]="restaurant.dinnerEnd"
+                *ngIf="restaurant.dinnerStart != ''"
               >
-                <option value="">Non Aperti a cena</option>
+                
                 <option value="00.00">00.00</option>
                 <option value="01.00">01.00</option>
                 <option value="02.00">02.00</option>

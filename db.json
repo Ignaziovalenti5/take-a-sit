@@ -18,8 +18,8 @@
     {
       "email": "cliente@cliente.it",
       "password": "$2a$10$PJZgHTqJy2xngM2Kr9TXaeEi8xO3BQIaJIaeDnapF9Xmt0r6R/keK",
-      "first_name": "Cliente",
-      "last_name": "Cliente",
+      "first_name": "Luigi",
+      "last_name": "Verdi",
       "id": 4
     },
     {
@@ -75,7 +75,7 @@
     },
     {
       "user": 4,
-      "name": "Cliente",
+      "name": "Luigi",
       "restaurant": 1,
       "restName": "Ciaula",
       "email": "cliente@cliente.it",
@@ -116,6 +116,17 @@
       "time": "19.30",
       "people": 1,
       "id": 7
+    },
+    {
+      "user": 2,
+      "name": "Mario",
+      "restaurant": 3,
+      "restName": "Ristorante 3 AG",
+      "email": "admin@admin.it",
+      "day": "1657820686826",
+      "time": "20.30",
+      "people": 3,
+      "id": 8
     }
   ],
   "restaurants": [
@@ -133,7 +144,7 @@
       ],
       "lunchStart": "",
       "lunchEnd": "",
-      "dinnerStart": "19.00",
+      "dinnerStart": "20.00",
       "dinnerEnd": "01.00",
       "dayOff": "Martedì",
       "reviews": [
@@ -218,7 +229,14 @@
       "dinnerStart": "19.00",
       "dinnerEnd": "01.00",
       "dayOff": "Martedì",
-      "reviews": [],
+      "reviews": [
+        {
+          "autor": "Mario",
+          "description": "",
+          "stars": 8,
+          "date": "12 lug 2022"
+        }
+      ],
       "id": 3
     },
     {

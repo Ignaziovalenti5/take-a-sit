@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   city!:string
   restId!:string
+  wrongData: boolean = false
   
   ngOnInit(): void {
     this.city = this.restSrv.city
@@ -31,26 +32,28 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    
     this.auth.login(this.authLogin).subscribe((res: any) => {
-
-      this.auth.logUser(res.accessToken)
-
-      if (res.user.restaurant) {
-        this.router.navigate(['/owners/dashboard'])
-      } else if(this.city){
-        this.router.navigate(['/restaurants/' + this.city])
-      } else if(this.restId){
-        this.router.navigate(['/restaurants/details/'+this.restId])
-      }else {
-        this.router.navigate(['/'])
-      }
+      
+        this.auth.logUser(res.accessToken)
+  
+        if (res.user.restaurant) {
+          this.router.navigate(['/owners/dashboard'])
+        } else if(this.city){
+          this.router.navigate(['/restaurants/' + this.city])
+        } else if(this.restId){
+          this.router.navigate(['/restaurants/details/'+this.restId])
+        }else {
+          this.router.navigate(['/'])
+        }
 
     })
-
+  
   }
 
   goToRegisterPage() {
     this.router.navigate(['/signup'])
   }
+
 
 }

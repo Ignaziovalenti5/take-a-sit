@@ -203,4 +203,8 @@ export class RestaurantDetailsComponent implements OnInit {
     }
   }
 
+  validateReservation(){
+    return 
+  }
+
 }

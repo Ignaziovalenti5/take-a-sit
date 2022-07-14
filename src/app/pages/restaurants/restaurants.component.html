@@ -18,12 +18,12 @@
 
 <div *ngIf="!isLoading" class="border d-flex align-items-center pt-3">
   <div class="container text-end d-flex justify-content-between">
-    <p><small>Pag. <b>{{currentPage}}</b> di <b>1</b></small></p>
+    <p><small>Pag. <b>{{currentPage}}</b> di <b>{{pages.length}}</b></small></p>
     <div *ngIf="noCity">
       <p *ngIf="!isLoading">
-        <small>La ricerca ha prodotto <b class="fs-6">{{ restaurants.length }}</b>
-          <span *ngIf="restaurants.length == 1"> risultato</span>
-          <span *ngIf="restaurants.length > 1 || restaurants.length == 0">
+        <small>La ricerca ha prodotto <b class="fs-6">{{ resultNum }}</b>
+          <span *ngIf="resultNum == 1"> risultato</span>
+          <span *ngIf="resultNum > 1 || resultNum == 0">
             risultati</span>
             per
             <b class="fs-6"><i>"{{ city }}"</i></b></small>
@@ -45,13 +45,26 @@
     </div>
   </div>
   <hr class="mt-5">
-  <nav class="mt-3" aria-label="Page navigation example">
-    <ul class="pagination justify-content-end container">
-      <li class="page-item mt-2 me-2">Pag.</li>
-      <li class="page-item"><a class="page-link text-dark">1</a></li>
-      <li class="page-item"><a class="page-link text-dark">2</a></li>
-    </ul>
-  </nav>
+
+  <div class="container">
+
+    <nav class="mt-3 d-flex justify-content-between" aria-label="Page navigation example">
+      <ul class="pagination justify-content-start container">
+        <li class="page-item d-flex row">
+          <select (change)="changePagination()" [(ngModel)]="restaurantsForPage" class="form-select col">
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+          <small class="col">Risultati per pag.</small> 
+        </li>
+      </ul>
+      <ul class="pagination justify-content-end container">
+        <li class="page-item mt-2 me-2">Pag.</li>
+        <li *ngFor="let page of pages; let i = index" class="page-item "><button (click)="setCurrentPage(i)" [ngClass]="{'active-page':currentPage == page}" class="page-link text-dark ">{{page}}</button></li>
+      </ul>
+    </nav>
+  </div>
 </div>
 
 <div class="container d-flex flex-column flex-sm-row justify-content-between pt-2 mt-5 border-top">

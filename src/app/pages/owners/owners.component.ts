@@ -94,4 +94,24 @@ export class OwnersComponent implements OnInit {
     
   }
 
+  validationStep1(){
+    return this.authOwners.restaurant.length < 2 ||
+    this.authOwners.address.length < 2 ||
+    this.authOwners.city.length < 2 ||
+    this.authOwners.cap.length < 2 ||
+    this.authOwners.phone.length < 2
+  }
+
+  validationStep2(){
+    return this.authOwners.categories.length < 1
+  }
+
+  validationStep3(){
+    let regEx = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm
+    return this.authRegister.first_name.length < 2 ||
+    this.authRegister.last_name.length < 2 ||
+    !this.authRegister.email.match(regEx) ||
+    this.authRegister.password.length < 4;
+  }
+
 }

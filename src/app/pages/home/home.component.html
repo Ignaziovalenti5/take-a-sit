@@ -24,7 +24,7 @@
             </div>
             <div *ngIf="isUserLogged()" class="user d-flex">
                 <h5 class="fs-6 me-2">Ciao, <span class="fs-5">{{user.first_name}}</span></h5>
-                <button class="btn me-2 p-0 user-btn" type="button" data-bs-toggle="offcanvas"
+                <button (click)="reloadRes()" class="btn me-2 p-0 user-btn" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-person-circle"></i>
                 </button>
@@ -83,7 +83,7 @@
                             <p class="m-0">
                                 <i class="bi bi-calendar2-check fs-3 me-3"></i><b>{{ r.restName }}</b>
                             </p>
-                            <button (click)="deleteReservation(i)" class="btn btn-danger">
+                            <button (click)="deleteExpRes(i)" class="btn btn-danger">
                                 <small><i class="bi bi-trash"></i></small>
                             </button>
                         </div>

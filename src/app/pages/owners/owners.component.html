@@ -1,4 +1,3 @@
-
 <div class="main">
 
     <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center loading">
@@ -13,39 +12,45 @@
             <img src="../../../assets/img/logo.png" alt="" srcset="">
             <h6><b>FOR RESTAURANT</b></h6>
         </div>
-                
-        
+
+
         <h3 *ngIf="step1">Compila tutti i campi:</h3>
         <div class="forms-step1" *ngIf="step1">
-    
+
             <form>
-                <input type="text" placeholder="Il tuo ristorante" [(ngModel)]="authOwners.restaurant" name="restaurant">
+                <input type="text" placeholder="Il tuo ristorante" [(ngModel)]="authOwners.restaurant"
+                    name="restaurant">
                 <input type="text" placeholder="Indirizzo" [(ngModel)]="authOwners.address" name="address">
                 <input type="text" placeholder="Città" [(ngModel)]="authOwners.city" name="city">
                 <input type="number" placeholder="CAP" [(ngModel)]="authOwners.cap" name="cap">
                 <input type="tel" placeholder="N° telefono" [(ngModel)]="authOwners.phone" name="phone">
                 <div>
-                    <button (click)="goToStep2()" class="btn btn-lg btn-success">Prossimo step</button>
+                    <button 
+                    (click)="goToStep2()"
+                    [disabled]="validationStep1()"
+                     class="btn btn-lg btn-success">Prossimo step</button>
                 </div>
                 <a [routerLink]="['/']">Torna alla home</a>
             </form>
-    
+
         </div>
 
         <div class="forms-step2" *ngIf="step2">
-    
+
             <form>
                 <h6>Categorie:</h6>
 
                 <form>
 
                     <div *ngFor="let category of categories" class="form-check-inline">
-                        <input (change)="addCategory(category)" class="form-check-input" type="checkbox" value="{{category}}" id="flexCheckDefault">
+                        <input (change)="addCategory(category)" class="form-check-input" type="checkbox"
+                            value="{{category}}" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             {{category}}
                         </label>
                     </div>
                 </form>
+                <small *ngIf="validationStep2()" class="text-danger">* Seleziona almeno una categoria</small>
 
                 <hr>
 
@@ -57,19 +62,18 @@
                         </div>
                         <div class="col-5">
                             <select name="orario-pranzo-start" [(ngModel)]="authOwners.lunchStart" class="form-select">
-                                <option>Non aperti a pranzo</option>
+                                <option value="">Non aperti a pranzo</option>
                                 <option value="11.00">11.00</option>
                                 <option value="12.00">12.00</option>
                                 <option value="12.00">13.00</option>
                             </select>
                         </div>
                         <div class="col-1 mt-2">
-                            <p>alle</p>
+                            <p *ngIf="authOwners.lunchStart != ''">alle</p>
                         </div>
                         <div class="col-5">
-
-                            <select name="orario-pranzo-end" class="form-select" [(ngModel)]="authOwners.lunchEnd">
-                                <option>Non aperti a pranzo</option>
+                            <select *ngIf="authOwners.lunchStart != ''" name="orario-pranzo-end" class="form-select" [(ngModel)]="authOwners.lunchEnd">
+                                <option value="">Non aperti a pranzo</option>
                                 <option value="14.00">14.00</option>
                                 <option value="15.00">15.00</option>
                                 <option value="16.00">16.00</option>
@@ -86,18 +90,18 @@
                         </div>
                         <div class="col-5">
                             <select name="orario-cena-start" class="form-select" [(ngModel)]="authOwners.dinnerStart">
-                                <option>Non aperti a cena</option>
+                                <option value="">Non aperti a cena</option>
                                 <option value="19.00">19.00</option>
                                 <option value="20.00">20.00</option>
                                 <option value="21.00">21.00</option>
                             </select>
                         </div>
                         <div class="col-1 mt-2">
-                            <p>alle</p>
+                            <p *ngIf="authOwners.dinnerStart != ''">alle</p>
                         </div>
                         <div class="col-5">
-                            <select name="orario-cena-end" class="form-select" [(ngModel)]="authOwners.dinnerEnd">
-                                <option>Non aperti a cena</option>
+                            <select *ngIf="authOwners.dinnerStart != ''" name="orario-cena-end" class="form-select" [(ngModel)]="authOwners.dinnerEnd">
+                                <option value="">Non aperti a cena</option>
                                 <option value="00.00">23.00</option>
                                 <option value="00.00">00.00</option>
                                 <option value="01.00">01.00</option>
@@ -114,7 +118,7 @@
                     </div>
                     <div class="col-8">
                         <select name="giorno-riposo" [(ngModel)]="authOwners.dayOff" class="form-select">
-                            <option>Nessuno</option>
+                            <option value="">Nessuno</option>
                             <option value="Lunedì">Lunedì</option>
                             <option value="Martedì">Martedì</option>
                             <option value="Mercoledì">Mercoledì</option>
@@ -125,20 +129,23 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div>
 
-                    <button (click)="goToStep3()" class="btn btn-lg btn-success">Prossimo step</button>
+                    <button 
+                    (click)="goToStep3()"
+                    [disabled]="validationStep2()"
+                    class="btn btn-lg btn-success">Prossimo step</button>
                 </div>
                 <a [routerLink]="['/']">Torna alla home</a>
             </form>
-    
+
         </div>
 
         <div class="forms-step1" *ngIf="step3">
 
             <h6>Dati del Titolare:</h6>
-    
+
             <form>
                 <input type="text" placeholder="Nome" [(ngModel)]="authRegister.first_name" name="first-name">
                 <input type="text" placeholder="Cognome" [(ngModel)]="authRegister.last_name" name="last-name">
@@ -146,13 +153,16 @@
                 <input type="password" placeholder="Password" [(ngModel)]="authRegister.password" name="password">
                 <div>
 
-                    <button (click)="registerRestaurant()" class="btn btn-lg btn-danger">Registra</button>
+                    <button 
+                    (click)="registerRestaurant()" 
+                    [disabled]="validationStep3()"
+                    class="btn btn-lg btn-danger">Registra</button>
                 </div>
                 <a [routerLink]="['/']">Torna alla home</a>
             </form>
-    
+
         </div>
-        
+
     </div>
-    
+
 </div>

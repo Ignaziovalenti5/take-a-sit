@@ -61,11 +61,24 @@ export class HomeComponent implements OnInit {
 
   deleteReservation(i: number) {
     this.isLoading = true;
+    
     let id = this.reservation[i].id;
     if (id) {
       this.restSrv.deleteReservation(id).subscribe((res) => {
         this.getReservation();
         this.isLoading = false;
+      });
+    }
+  }
+
+  deleteExpRes(i:number){
+    this.isLoading = true;
+    
+    let id = this.expiredRes[i].id;
+    if (id) {
+      this.restSrv.deleteReservation(id).subscribe((res) => {
+        this.getReservation();
+        
       });
     }
   }
@@ -77,7 +90,7 @@ export class HomeComponent implements OnInit {
       let seconds = new Date().getSeconds() * 1000
 
       let today = new Date().getTime() - hours - minutes - seconds
-
+      this.expiredRes = []
       for (let i = 0; i < res.length; i++) {
         if (res[i].day < today) {
           this.expiredRes.push(res[i])
@@ -92,6 +105,7 @@ export class HomeComponent implements OnInit {
         this.reservation = res.filter((r: any) => r.user == this.user.id && r.day > today);
         this.getDateRes();
       }
+      this.isLoading = false;
     });
   }
 
@@ -103,6 +117,11 @@ export class HomeComponent implements OnInit {
         })
       );
     }
+  }
+
+  reloadRes(){
+    console.log('test');
+    
   }
 
 
